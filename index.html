@@ -28,19 +28,24 @@
 
     .outer-side {
       display: flex;
+      flex-direction: column;
       height: 100%;
       width: 100%;
     }
 
     .left-side {
-      width: 30%;
+      width: 100%;
+      height: 50%;
       background-color: hsl(278, 68%, 11%);
       position: relative;
       display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .right-side {
-      width: 70%;
+      width: 100%;
+      height: 50%;
       background-color: white;
       position: relative;
       display: flex;
@@ -56,7 +61,7 @@
       font-size: 11px;
       text-align: center;
       padding: 10px 0;
-      margin-top: 65%;
+      margin-top: auto;
     }
 
     .attribution a {
@@ -64,21 +69,22 @@
     }
 
     .card-1, .card-2{
-      height: 28%;
-      width: 26%;
+      height: 30%;
+      width: 60%;
+      max-width: 300px;
       position: absolute;
       background: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
       border-radius: 8px;
     }
 
     .card-1{
-      top: 20%;
-      left: 10%;
+      top: 10%;
+      left: 5%;
     }
 
     .card-2{
-      bottom: 20%;
-      left: 15%;
+      bottom: 10%;
+      left: 10%;
       background: linear-gradient(to right, #ffffff, #cccccc);
     }
 
@@ -108,10 +114,10 @@
     }
 
     #card-number{
-      font-size: 32px;
+      font-size: 24px;
       font-family: serif;
       margin-left: 10%;
-      margin-top: 7%;
+      margin-top: 10%;
       resize: none;
       color: white;
     }
@@ -119,15 +125,16 @@
     #card-name{
       margin-left: 10%;
       margin-top: 3%;
-      font-size: 20px;
+      font-size: 16px;
       font-family: serif;
       color: white;
     }
 
     #card-date{
-      margin-left: 40%;
+      margin-left: auto;
+      margin-right: 10%;
       margin-top: 3%;
-      font-size: 20px;
+      font-size: 16px;
       font-family: serif;
       color: white;
     }
@@ -156,70 +163,109 @@
       color: white;
     }
 
-  .card-form {
-    height: 50%;
-    width: 50%; 
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    margin-left: 10%;
-  }
+    .card-form {
+      width: 80%; 
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-  input[type="text"], input[type="number"]{
-    border-radius: 8px;
-    height: 40px;
-    width: 80%;
-    padding-left: 15px;
-    margin-top: 5px;
-    font-size: 16px;
-    border: 3px solid #ccc;
-  }
+    input[type="text"], input[type="number"]{
+      border-radius: 8px;
+      height: 40px;
+      width: 100%;
+      padding-left: 15px;
+      margin-top: 5px;
+      font-size: 16px;
+      border: 3px solid #ccc;
+    }
 
-  input[type="button"]{
-    border-radius: 8px;
-    height: 40px;
-    width: 80%;
-    color: white;
-    font-size: 16px;
-    border: 3px solid #ccc;
-    background-color: hsl(278, 68%, 11%)
-  }
+    input[type="button"]{
+      border-radius: 8px;
+      height: 40px;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      border: 3px solid #ccc;
+      background-color: hsl(278, 68%, 11%);
+      cursor: pointer;
+    }
 
-  #cardMonth, #cardYear{
-    width: 40%;
-  }
+    #cardMonth, #cardYear{
+      width: 45%;
+    }
 
-  #cardCVV{
-    width: 63%;
-    margin-left: 0%;
-  }
+    #cardCVV{
+      width: 95%;
+    }
 
-  label{
-    font-size: 14px;
-    font-weight: bold;
-    
-  }
+    label{
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-  .footer{
-    margin-top: 35%;
-    font-size: 12px;
-    margin-left: 13%;
-  }
+    .footer{
+      margin-top: 20%;
+      font-size: 12px;
+      text-align: center;
+    }
 
-  #number-message, #date-message, #cvv-message, #name-message{
-    color: red;
-    font-size: 12px;
-  }
+    #number-message, #date-message, #cvv-message, #name-message{
+      color: red;
+      font-size: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .outer-side {
+        flex-direction: row;
+      }
+      
+      .left-side, .right-side {
+        height: 100%;
+      }
+
+      .left-side {
+        width: 30%;
+      }
+
+      .right-side {
+        width: 70%;
+      }
+
+      .card-form {
+        width: 50%;
+        margin-left: 10%;
+      }
+
+      .footer {
+        margin-top: 35%;
+        margin-left: 13%;
+      }
+    }
 
   </style>
 </head>
 <body>
   <div class="outer-side">
     <div class="left-side">
-      
+      <div class="card-1">
+        <span class="dot-1"></span>
+        <span class="dot-2"></span>
+        <p id="card-number">0000 0000 0000 0000</p>
+        <div class="card-details">
+          <p id="card-name">Tejas Ramane</p>
+          <p id="card-date">00/00</p>
+        </div>
+      </div>
+      <div class="card-2">
+        <div class="black-space"></div>
+        <div class="cvv-details">
+          <p id="cvv">000</p>
+        </div>
+      </div>
     </div>
     <div class="right-side">
-
       <div class="card-form">
         <form action="" method="POST">
           <label for="card-name">CARDHOLDER NAME</label><br>
@@ -249,25 +295,8 @@
         </form>
         <div class="footer">
           Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="https://github.com/tejas11054">Tejas Ramane</a>
+          Coded by <a href="https://github.com/tejas11054">Tejas Ramane</a>
         </div>
-      </div>
-      
-    </div>
-
-    <div class="card-1">
-      <span class="dot-1"></span>
-      <span class="dot-2"></span>
-      <p id="card-number">0000 0000 0000 0000</p>
-      <div class="card-details">
-        <p id="card-name">Tejas Ramane</p>
-        <p id="card-date">00/00</p>
-      </div>
-    </div>
-    <div class="card-2">
-      <div class="black-space"></div>
-      <div class="cvv-details">
-        <p id="cvv">000</p>
       </div>
     </div>
   </div>
